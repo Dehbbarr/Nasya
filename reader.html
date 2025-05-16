@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Чтение манги | Danzo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header><h1>Чтение манги</h1></header>
+  <main id="reader" style="padding: 1rem;"></main>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    fetch("data/mangas.json")
+      .then(res => res.json())
+      .then(data => {
+        const manga = data.find(m => m.id === id);
+        if (!manga) return;
+        document.title = manga.title + " | Danzo";
+        const reader = document.getElementById("reader");
+        reader.innerHTML = "<h2>" + manga.title + "</h2>";
+        manga.pages.forEach(url => {
+          const img = document.createElement("img");
+          img.src = url;
+          img.style = "max-width:100%; margin-bottom: 1rem;";
+          reader.appendChild(img);
+        });
+      });
+  </script>
+</body>
+</html>

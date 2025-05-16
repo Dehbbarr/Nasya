@@ -1,0 +1,15 @@
+
+[
+  {
+    "id": "demo001",
+    "title": "Пример манги",
+    "author": "admin",
+    "description": "Это демонстрационная манга для проекта Danzo.",
+    "pages": [
+      "https://telegra.ph/file/f2f109b6e3e7f7e949380.jpg",
+      "https://telegra.ph/file/fc3c19c2cd2510f28e203.jpg"
+    ],
+    "rating": 4.8,
+    "votes": 25
+  }
+]
